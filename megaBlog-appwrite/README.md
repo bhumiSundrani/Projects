@@ -13,6 +13,12 @@ This is a simple blog application built using **React** and **Vite**. It allows 
 
 ---
 
+## Live Demo
+Check out the live project deployed on Netlify:  
+[Blog Project Live](https://blog-app-appwrite.netlify.app/)
+
+---
+
 ## Technologies Used
 
 - **Frontend**: React (with Vite for fast development)
