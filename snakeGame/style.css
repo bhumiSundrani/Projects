@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     padding: 0;
     margin: 0;
@@ -60,4 +61,68 @@
     right: 135px;
     font-size: 29px;
     font-weight: bold;   
+=======
+*{
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-image: url(img/bg.jpg);
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board{
+    background: linear-gradient(rgb(123, 215, 123), rgb(252, 252, 164));
+    width: 90vmin;
+    height: 90vmin;
+    border: 2px solid black;   
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(18, 1fr); 
+}
+
+.snake{
+    background-color: purple;
+    border: .25vmin solid white;
+    border-radius: 12px;
+}
+
+.head{
+    background: linear-gradient(45deg, rgb(248, 124, 124), rgb(232, 232, 95));
+    border-radius: 8px;
+    border: .25vmin solid black;
+    transform: scale(1.2);
+
+}
+
+.food{
+    background: linear-gradient(120deg, red, purple);
+    border: .25vmin solid black;
+    border-radius: 8px;
+}
+
+#score-box{
+    position: absolute;
+    top: 9px;
+    right: 200px;
+    font-size: 29px;
+    font-weight: bold;
+}
+
+#highScore-box{
+    position: absolute;
+    top: 35px;
+    right: 135px;
+    font-size: 29px;
+    font-weight: bold;   
+>>>>>>> ae0220ae5823c93c719edfd2726c8ccd3590e043
 }

@@ -1,8 +1,44 @@
-# React + Vite
+# Blog Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple blog application built using **React** and **Vite**. It allows users to create an account, manage their sessions, and write, edit, and delete blog posts using a rich text editor (RTE).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+
+- **Account Creation**: Users can register to create their accounts.
+- **Session Management**: Handle user login and logout seamlessly.
+- **Create Posts**: Write blog posts with a rich text editor for better formatting.
+- **Edit & Delete Posts**: Modify or remove posts as needed.
+
+---
+
+## Live Demo
+Check out the live project deployed on Netlify:  
+[Blog Project Live](https://blog-app-appwrite.netlify.app/)
+
+---
+
+## Technologies Used
+
+- **Frontend**: React (with Vite for fast development)
+- **Styling**: Tailwind CSS
+- **State Management**: Redux Toolkit
+- **Form Management**: React Hook Form
+- **Rich Text Editor**: Implemented for a user-friendly writing experience.
+
+---
+
+## Getting Started
+
+### Prerequisites
+Make sure you have the following installed on your system:
+- **Node.js** (v16 or later)
+- **npm** or **yarn**
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bhumiSundrani/Projects.git
+   cd Projects/blog-project
