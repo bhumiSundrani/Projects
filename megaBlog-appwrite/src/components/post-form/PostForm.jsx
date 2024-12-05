@@ -103,9 +103,10 @@ function PostForm({post}) {
                 <Input
                     label="Featured Image :"
                     type="file"
-                    className="mb-4"
+                    className="mb-4 overflow-hidden"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
                     {...register("image", { required: !post })}
+                    onChange={(e) => image = e.target.value}
                 />
                 {post && (
                     <div className="w-full mb-4">

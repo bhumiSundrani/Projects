@@ -5,7 +5,6 @@ import {Button, Input, Logo} from './index'
 import authService from '../appwrite/auth'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { setPosts } from '../../../blog-project/src/store/postSlice'
 
 function Login() {
     const navigate = useNavigate();
