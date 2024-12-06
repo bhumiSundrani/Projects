@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import {Button, Input, Select, RTE} from '../index'
 import service from '../../appwrite/config'
@@ -16,41 +16,49 @@ function PostForm({post}) {
     });
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData)
+    const [loading, setLoading] = useState(false); // Loading state
 
-    const submit = async (data) => {
-        if (post) {
-            const file = data.image[0] ? await service.uploadFile(data.image[0]) : null
+    const submit = async (data) => { 
+        setLoading(true); // Start loading
+        try {
+            if (post) {
+                const file = data.image[0] ? await service.uploadFile(data.image[0]) : null
 
-            if(file){
-                service.deleteFile(post.featuredImage)
-            }
+                if(file){
+                    service.deleteFile(post.featuredImage)
+                }
 
-            const dbPost = await service.updatePost(post.$id, {
-                ...data,
-                featuredImage: file ? file.$id : undefined,
-            })
-
-            if(dbPost){
-                navigate(`/post/${dbPost.$id}`)
-            }
-            
-        }else{
-            const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
-            if(file){
-                const fileId = file.$id
-                data.featuredImage = fileId
-                if (!userData || !userData.$id) {
-                    console.error("User is not authenticated");
-                    return;
-                }                
-                const dbPost = await service.createPost({
+                const dbPost = await service.updatePost(post.$id, {
                     ...data,
-                    userId: userData.$id,
+                    featuredImage: file ? file.$id : undefined,
                 })
+
                 if(dbPost){
                     navigate(`/post/${dbPost.$id}`)
                 }
+                
+            }else{
+                const file = data.image[0] ? await service.uploadFile(data.image[0]) : null;
+                if(file){
+                    const fileId = file.$id
+                    data.featuredImage = fileId
+                    if (!userData || !userData.$id) {
+                        console.error("User is not authenticated");
+                        return;
+                    }                
+                    const dbPost = await service.createPost({
+                        ...data,
+                        userId: userData.$id,
+                    })
+                    if(dbPost){
+                        navigate(`/post/${dbPost.$id}`)
+                    }
+                }
             }
+        }catch(error){
+            console.error('Error submitting post:', error);
+        } finally {
+            setLoading(false); // Stop loading
         }
     };
 
@@ -132,7 +140,7 @@ function PostForm({post}) {
                  {...register("authorName")}
                 />
                 <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
-                    {post ? "Update" : "Submit"}
+                    {loading ? 'Submitting...' : post ? 'Update' : 'Submit'}
                 </Button>
             </div>
         </form>
