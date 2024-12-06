@@ -15,7 +15,7 @@ This is a simple blog application built using **React** and **Vite**. It allows 
 
 ## Live Demo
 Check out the live project deployed on Netlify:  
-[Blog Project Live]((https://blog-app-appwrite1.netlify.app/))
+[Blog Project Live]([https://blog-app-appwrite1.netlify.app/])
 
 ---
 
